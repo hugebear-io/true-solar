@@ -1,13 +1,20 @@
 package solarman
 
-import "regexp"
+import (
+	"regexp"
+	"time"
+)
 
 var htmlTagsRegExp = regexp.MustCompile(`<\/?[a-z][\s\S]*>`)
 
+const BRAND = "solarman"
+
 const (
-	URL_VERSION1         = "https://globalapi.solarmanpv.com"
-	AUTHORIZATION_HEADER = "Authorization"
-	MAX_PAGE_SIZE        = 200
+	URL_VERSION1                  = "https://globalapi.solarmanpv.com"
+	AUTHORIZATION_HEADER          = "Authorization"
+	MAX_PAGE_SIZE                 = 200
+	SOLARMAN_DEVICE_TYPE_INVERTER = "INVERTER"
+	WAIT_TIME                     = 30 * time.Second
 )
 
 const (
@@ -17,11 +24,15 @@ const (
 	TIME_TYPE_YEAR
 )
 
-const BRAND = "solarman"
-
 const (
 	DATA_LIST_KEY_CUMULATIVE_PRODUCTION = "Et_ge0"
 	DATA_LIST_KEY_GENERATION            = "generation"
+)
+
+const (
+	SOLARMAN_PLANT_STATUS_ON    = "ONLINE"
+	SOLARMAN_PLANT_STATUS_OFF   = "OFFLINE"
+	SOLARMAN_PLANT_STATUS_ALARM = "ALARM"
 )
 
 const (
